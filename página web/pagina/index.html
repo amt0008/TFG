@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechnoStore | Hardware & High Performance</title>
+    
+    <link rel="stylesheet" href="CSS/cookies.css">
+    <link rel="icon" type="image/png" href="../pagina/imagenes/icono.png">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { 
+            --primary-color: #0056b3; 
+            --dark-bg: #1a1a1a; 
+            --light-grey: #f4f4f4; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--light-grey); 
+            overflow-x: hidden;
+        }
+        
+        header { 
+            background: white; 
+            border-bottom: 2px solid var(--primary-color); 
+            padding: 0 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            height: 80px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo { font-size: 28px; font-weight: bold; color: var(--primary-color); text-transform: uppercase; text-decoration: none; }
+
+        .search-container { flex-grow: 1; max-width: 400px; margin: 0 20px; display: flex; }
+        .search-container input { width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; outline: none; }
+        .search-container button { padding: 10px 20px; background: var(--primary-color); color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer; }
+
+        .nav-container { display: flex; height: 100%; }
+        .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
+
+        .nav-link { 
+            text-decoration: none; color: #444; padding: 0 20px; 
+            font-weight: 600; transition: 0.3s; height: 100%;
+            display: flex; align-items: center;
+        }
+
+        .nav-link:hover { color: var(--primary-color); background: #f9f9f9; }
+
+        .dropdown { 
+            display: none; position: absolute; top: 100%; left: 0; 
+            background-color: white; min-width: 220px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1); 
+            border-top: 3px solid var(--primary-color); z-index: 1001; 
+        }
+
+        .nav-item:hover .dropdown { display: block; animation: fadeIn 0.2s ease; }
+
+        .dropdown a { color: #333; padding: 12px 20px; text-decoration: none; display: block; font-size: 14px; transition: 0.2s; }
+        .dropdown a:hover { background-color: #f1f1f1; color: var(--primary-color); }
+        .dropdown hr { border: 0; border-top: 1px solid #eee; margin: 5px 0; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80') center/cover no-repeat; 
+            color: white; 
+            text-align: center; 
+            padding: 180px 5% 120px; 
+            background-attachment: fixed;
+        }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.7); }
+        .hero p { font-size: 1.5rem; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .btn-cta { 
+            background: var(--primary-color); 
+            color: white; 
+            padding: 18px 48px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1.3rem; 
+            transition: all 0.3s; 
+            box-shadow: 0 6px 20px rgba(0,86,179,0.4);
+        }
+        .btn-cta:hover { 
+            background: #004494; 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 30px rgba(0,86,179,0.5);
+        }
+
+        .container { max-width: 1300px; margin: 60px auto; padding: 0 5%; }
+        h2 { text-align: center; color: var(--primary-color); margin-bottom: 40px; font-size: 2.4rem; }
+
+        .grid-productos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 30px; 
+        }
+        .card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12); 
+            transition: all 0.3s ease; 
+            display: flex; 
+            flex-direction: column;
+        }
+        .card:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 16px 40px rgba(0,0,0,0.18); 
+        }
+        .card img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: contain; 
+            padding: 20px; 
+            background: #f9f9f9; 
+        }
+        .card-body { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
+        .card h3 { margin: 0 0 12px; font-size: 1.3rem; height: 2.6em; overflow: hidden; }
+        .precio { font-size: 1.6rem; color: var(--primary-color); font-weight: bold; margin: 12px 0; }
+        .btn-comprar { 
+            background: #28a745; 
+            color: white; 
+            padding: 12px 24px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-top: auto; 
+            transition: all 0.3s;
+        }
+        .btn-comprar:hover { background: #218838; transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            header { flex-wrap: wrap; height: auto; padding: 10px 5%; }
+            .search-container { max-width: 100%; margin: 10px 0; }
+            .nav-container { flex-wrap: wrap; justify-content: center; }
+            .nav-item { height: auto; }
+            .nav-link { padding: 10px 15px; }
+            .hero { padding: 120px 5% 80px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.3rem; }
+            .grid-productos { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .btn-cta { padding: 14px 32px; font-size: 1.1rem; }
+            .grid-productos { grid-template-columns: 1fr; }
+        }
+
+        /* --- NUEVOS ESTILOS DEL MODAL DE POLÍTICA DE COOKIES --- */
+        .legal-cookie-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000; /* Por encima del header y el banner */
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .legal-cookie-modal-overlay.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .legal-cookie-modal {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh; /* Evita que se salga de la pantalla */
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .legal-cookie-modal h2 {
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .legal-content {
+            overflow-y: auto; /* Permite hacer scroll dentro del texto */
+            padding-right: 15px;
+            text-align: left;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .legal-content h3 {
+            color: #222;
+            margin: 25px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .legal-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .legal-content li {
+            margin-bottom: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            line-height: 1;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">TechnoStore</a> 
+        
+        <form class="search-container" onsubmit="return handleSearch(event)">
+            <input type="text" id="searchInput" placeholder="Buscar productos...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <nav class="nav-container">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Componentes</a>
+                <div class="dropdown">
+                    <a href="html/filtro.php?categoria=procesador">Procesadores</a>
+                    <a href="html/filtro.php?categoria=grafica">Tarjetas Gráficas</a>
+                    <a href="html/filtro.php?categoria=placa base">Placas Base</a>
+                    <a href="html/filtro.php?categoria=ram">Memorias RAM</a>
+                    <a href="html/filtro.php?categoria=ssd">Almacenamiento</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">Portátiles</a>
+                <div class="dropdown">
+                    <a href="html/filtro.php?categoria=portatil gaming">Gaming</a>
+                    <a href="html/filtro.php?categoria=portatil">Trabajo/Oficina</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">Gaming</a>
+                <div class="dropdown">
+                    <a href="html/filtro.php?categoria=monitor">Monitores</a>
+                    <a href="html/filtro.php?categoria=periferico">Periféricos</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">Mi Cuenta</a>
+                <div class="dropdown">
+                    <a href="html/login.php">Iniciar sesión</a>
+                    <a href="html/registro.php">Registrarse</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Tecnología de Vanguardia</h1>
+        <p>Los mejores componentes para usuarios exigentes.</p>
+        <button class="btn-cta" onclick="window.location.href='html/filtro.php'">Ver Catálogo</button>
+    </section>
+
+    <div class="container">
+        <h2>Hardware Destacado</h2>
+        <div class="grid-productos">
+
+            <div class="card">
+                <img src="images/products/nvidia/rtx4090-fe.jpg" alt="GeForce RTX 4090 Founders Edition 24GB">
+                <div class="card-body">
+                    <h3>GeForce RTX 4090 Founders Edition 24GB</h3>
+                    <p class="precio">1.899,99 €</p>
+                    <a href="html/filtro.php?q=RTX%204090" class="btn-comprar">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/products/amd/ryzen9-9950x.jpg" alt="Ryzen 9 9950X 16 núcleos">
+                <div class="card-body">
+                    <h3>Ryzen 9 9950X 16 núcleos</h3>
+                    <p class="precio">679,99 €</p>
+                    <a href="html/filtro.php?q=Ryzen%209%209950X" class="btn-comprar">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/products/nvidia/rtx5080.jpg" alt="GeForce RTX 5080 16GB">
+                <div class="card-body">
+                    <h3>GeForce RTX 5080 16GB</h3>
+                    <p class="precio">1.299,99 €</p>
+                    <a href="html/filtro.php?q=RTX%205080" class="btn-comprar">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/products/intel/i9-15900k.jpg" alt="Core i9-15900K 24 núcleos">
+                <div class="card-body">
+                    <h3>Core i9-15900K 24 núcleos</h3>
+                    <p class="precio">689,99 €</p>
+                    <a href="html/filtro.php?q=Core%20i9-15900K" class="btn-comprar">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/products/asus/rog-strix-z890-e.jpg" alt="ROG Strix Z890-E Gaming WiFi">
+                <div class="card-body">
+                    <h3>ROG Strix Z890-E Gaming WiFi</h3>
+                    <p class="precio">499,99 €</p>
+                    <a href="html/filtro.php?q=ROG%20Strix%20Z890" class="btn-comprar">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/products/samsung/990evo-plus-2tb.jpg" alt="990 EVO Plus 2TB PCIe 5.0 NVMe">
+                <div class="card-body">
+                    <h3>990 EVO Plus 2TB PCIe 5.0 NVMe</h3>
+                    <p class="precio">229,99 €</p>
+                    <a href="html/filtro.php?q=990%20EVO" class="btn-comprar">Ver producto</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            <h4>Aviso de Cookies</h4>
+            <p>Utilizamos cookies propias y de terceros para mejorar nuestros servicios, personalizar el contenido y analizar el tráfico. Puedes aceptar todas las cookies, rechazarlas o configurarlas. <a href="#">Política de Cookies</a>.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="btnAcceptCookies" class="btn-cookie btn-accept-cookies">Aceptar todas</button>
+            <button id="btnRejectCookies" class="btn-cookie btn-reject-cookies">Rechazar</button>
+            <button id="btnConfigCookies" class="btn-cookie btn-config-cookies">Configurar</button>
+        </div>
+    </div>
+
+    <div id="cookieModal" class="cookie-modal-overlay">
+        <div class="cookie-modal">
+            <h3>Configuración de Cookies</h3>
+            <div class="cookie-option">
+                <input type="checkbox" id="cookieTecnicas" checked disabled>
+                <div class="cookie-option-content">
+                    <h4>Cookies Técnicas (Estrictamente necesarias)</h4>
+                    <p>Son necesarias para que el sitio web funcione de manera segura y no se pueden desactivar.</p>
+                </div>
+            </div>
+            <div class="cookie-option">
+                <input type="checkbox" id="cookieAnaliticas">
+                <div class="cookie-option-content">
+                    <h4>Cookies Analíticas</h4>
+                    <p>Permiten contar las visitas y fuentes de tráfico para evaluar el rendimiento de la tienda.</p>
+                </div>
+            </div>
+            <div class="cookie-option">
+                <input type="checkbox" id="cookieMarketing">
+                <div class="cookie-option-content">
+                    <h4>Cookies de Marketing</h4>
+                    <p>Se utilizan para rastrear a los visitantes con la intención de mostrar anuncios relevantes.</p>
+                </div>
+            </div>
+            <button id="btnSaveConfig" class="close-modal-btn">Guardar configuración</button>
+        </div>
+    </div>
+
+    <div id="legalCookieModal" class="legal-cookie-modal-overlay">
+        <div class="legal-cookie-modal">
+            <span id="closeLegalModal" class="close-btn">&times;</span>
+            <h2>Política de Cookies</h2>
+            <div class="legal-content">
+                <h3>1. ¿Qué son las cookies?</h3>
+                <p>Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.</p>
+                
+                <h3>2. ¿Qué tipos de cookies utiliza esta página web?</h3>
+                <p>Esta tienda online (TechnoStore) utiliza los siguientes tipos de cookies:</p>
+                <ul>
+                    <li><strong>Cookies Técnicas (Estrictamente necesarias):</strong> Son aquellas que permiten al usuario la navegación a través de la página web y la utilización de las diferentes opciones o servicios que en ella existen, como, por ejemplo, controlar el tráfico, identificar la sesión, acceder a partes de acceso restringido o realizar el proceso de compra de un pedido.</li>
+                    <li><strong>Cookies Analíticas:</strong> Son aquellas que nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos que le ofrecemos.</li>
+                    <li><strong>Cookies de Marketing (Publicitarias):</strong> Son aquellas que, tratadas por nosotros o por terceros, nos permiten analizar sus hábitos de navegación en Internet para que podamos mostrarle publicidad relacionada con su perfil de navegación.</li>
+                </ul>
+
+                <h3>3. Revocación y eliminación de cookies</h3>
+                <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador instalado en tu ordenador. En caso de que no permitas la instalación de cookies en tu navegador es posible que no puedas acceder a alguna de las secciones de nuestra web.</p>
+                <ul>
+                    <li>Para más información sobre cómo bloquear cookies en <strong>Google Chrome</strong>, visita la ayuda oficial de Google.</li>
+                    <li>Para más información sobre cómo bloquear cookies en <strong>Mozilla Firefox</strong>, visita la ayuda oficial de Mozilla.</li>
+                    <li>Para más información sobre cómo bloquear cookies en <strong>Microsoft Edge</strong>, visita la ayuda oficial de Microsoft.</li>
+                    <li>Para más información sobre cómo bloquear cookies en <strong>Safari</strong>, visita la ayuda oficial de Apple.</li>
+                </ul>
+
+                <h3>4. Terceros prestadores de servicios</h3>
+                <p>En concreto, los terceros con los que hemos gestionado algún servicio para el que es necesaria la utilización de cookies son: Google Analytics (análisis de tráfico) y plataformas de anuncios asociados. Las condiciones de estos servicios están sujetas a sus propias políticas de privacidad.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchInput').value.trim();
+            window.location.href = "html/filtro.php" + (query === "" ? "" : "?q=" + encodeURIComponent(query));
+        }
+
+        // --- LÓGICA DE GESTIÓN DE COOKIES ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const banner = document.getElementById('cookieBanner');
+            const modal = document.getElementById('cookieModal');
+            
+            // Función para leer una cookie local del navegador
+            function getCookie(name) {
+                let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                if (match) return match[2];
+                return null;
+            }
+
+            // Función para crear una cookie local en el navegador
+            function setCookie(name, value, days) {
+                let d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+            }
+
+            // 1. COMPROBAR SI LAS COOKIES YA ESTÁN ACEPTADAS
+            const cookieConsent = getCookie("cookies_accepted");
+
+            if (!cookieConsent) {
+                // Si no hay cookie local, mostramos el banner con un pequeño retraso para la animación
+                setTimeout(() => {
+                    banner.classList.add('show');
+                }, 500);
+            }
+
+            // Función principal para guardar las preferencias elegidas
+            function savePreferences(preferences) {
+                // Guardamos en el navegador (caduca en 365 días)
+                setCookie("cookies_accepted", JSON.stringify(preferences), 365);
+                
+                // Ocultamos la interfaz
+                banner.classList.remove('show');
+                modal.classList.remove('show');
+
+                // 2. SINCRONIZAR CON LA BASE DE DATOS MEDIANTE PHP
+                // Envía los datos al archivo guardar_cookies.php de tu servidor
+                fetch('html/guardar_cookies.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(preferences)
+                }).catch(error => console.error('Error al sincronizar con la BD:', error));
+            }
+
+            // Eventos de los botones del banner
+            document.getElementById('btnAcceptCookies').addEventListener('click', () => {
+                savePreferences({ tecnicas: true, analiticas: true, marketing: true });
+            });
+
+            document.getElementById('btnRejectCookies').addEventListener('click', () => {
+                savePreferences({ tecnicas: true, analiticas: false, marketing: false });
+            });
+
+            document.getElementById('btnConfigCookies').addEventListener('click', () => {
+                modal.classList.add('show');
+            });
+
+            // Evento para cerrar y guardar desde el modal de configuración
+            document.getElementById('btnSaveConfig').addEventListener('click', () => {
+                const analiticas = document.getElementById('cookieAnaliticas').checked;
+                const marketing = document.getElementById('cookieMarketing').checked;
+                savePreferences({ tecnicas: true, analiticas: analiticas, marketing: marketing });
+            });
+
+            // --- NUEVA LÓGICA PARA ABRIR Y CERRAR EL TEXTO LEGAL DE COOKIES ---
+            const legalLink = document.querySelector('.cookie-text a');
+            const legalModal = document.getElementById('legalCookieModal');
+            const closeLegalModal = document.getElementById('closeLegalModal');
+
+            // Al hacer clic en el enlace, evitamos que recargue la página y abrimos el modal
+            legalLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                legalModal.classList.add('show');
+            });
+
+            // Cerrar al pulsar la 'X'
+            closeLegalModal.addEventListener('click', function() {
+                legalModal.classList.remove('show');
+            });
+
+            // Cerrar también si el usuario hace clic fuera de la ventana blanca
+            window.addEventListener('click', function(e) {
+                if (e.target === legalModal) {
+                    legalModal.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

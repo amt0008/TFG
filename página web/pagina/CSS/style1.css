@@ -1,0 +1,173 @@
+/* Variables de color para mantener un estilo profesional */
+:root {
+    --color-primario: #0f172a; /* Azul muy oscuro y elegante */
+    --color-acento: #3b82f6;   /* Azul brillante para botones */
+    --color-fondo: #f8fafc;    /* Gris muy clarito para el fondo */
+    --color-texto: #334155;
+    --blanco: #ffffff;
+}
+
+/* Reseteo básico para evitar márgenes raros en diferentes navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
+header {
+    background-color: var(--color-primario);
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: sticky; /* Se queda pegado arriba al hacer scroll */
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--color-acento);
+}
+
+header nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: var(--color-acento); /* Cambia de color al pasar el ratón */
+}
+
+/* --- BANNER PRINCIPAL (HERO) --- */
+.hero {
+    background-color: var(--color-primario);
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: var(--blanco);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #cbd5e1;
+}
+
+.btn-principal {
+    background-color: var(--color-acento);
+    color: var(--blanco);
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #2563eb;
+}
+
+/* --- SECCIÓN DE PRODUCTOS --- */
+.productos {
+    padding: 60px 50px;
+    text-align: center;
+}
+
+.productos h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--color-primario);
+}
+
+.grid-productos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que se adapte a móviles */
+}
+
+/* Tarjetas individuales de cada producto */
+.tarjeta-producto {
+    background-color: var(--blanco);
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto al pasar el ratón sobre la tarjeta */
+.tarjeta-producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Recorta la imagen para que encaje perfecto */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #e2e8f0; /* Fondo gris por si la imagen no carga */
+}
+
+.tarjeta-producto h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-primario);
+}
+
+.tarjeta-producto .precio {
+    color: var(--color-acento);
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-comprar {
+    display: block;
+    background-color: var(--color-primario);
+    color: var(--blanco);
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: var(--color-acento);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-primario);
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    border-top: 1px solid #1e293b;
+}

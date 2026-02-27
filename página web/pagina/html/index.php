@@ -243,7 +243,7 @@ session_start();
         <div class="grid-productos">
 
             <div class="card">
-                <img src="images/products/nvidia/rtx4090-fe.jpg" alt="GeForce RTX 4090 Founders Edition 24GB">
+                <img src="../imagenes/GeForce_RTX_4090_Founders_Edition_24GB.png" alt="GeForce RTX 4090 Founders Edition 24GB">
                 <div class="card-body">
                     <h3>GeForce RTX 4090 Founders Edition 24GB</h3>
                     <p class="precio">1.899,99 €</p>
@@ -252,7 +252,7 @@ session_start();
             </div>
 
             <div class="card">
-                <img src="images/products/amd/ryzen9-9950x.jpg" alt="Ryzen 9 9950X 16 núcleos">
+                <img src="../imagenes/Ryzen_9_9950X.png" alt="Ryzen 9 9950X 16 núcleos">
                 <div class="card-body">
                     <h3>Ryzen 9 9950X 16 núcleos</h3>
                     <p class="precio">679,99 €</p>
@@ -261,7 +261,7 @@ session_start();
             </div>
 
             <div class="card">
-                <img src="images/products/nvidia/rtx5080.jpg" alt="GeForce RTX 5080 16GB">
+                <img src="../imagenes/GeForce_RTX_5080_16GB.png" alt="GeForce RTX 5080 16GB">
                 <div class="card-body">
                     <h3>GeForce RTX 5080 16GB</h3>
                     <p class="precio">1.299,99 €</p>
@@ -270,7 +270,7 @@ session_start();
             </div>
 
             <div class="card">
-                <img src="images/products/intel/i9-15900k.jpg" alt="Core i9-15900K 24 núcleos">
+                <img src="../imagenes/Core_i9-15900K_24_nucleos.png" alt="Core i9-15900K 24 núcleos">
                 <div class="card-body">
                     <h3>Core i9-15900K 24 núcleos</h3>
                     <p class="precio">689,99 €</p>
@@ -279,7 +279,7 @@ session_start();
             </div>
 
             <div class="card">
-                <img src="images/products/asus/rog-strix-z890-e.jpg" alt="ROG Strix Z890-E Gaming WiFi">
+                <img src="../imagenes/ROG_Strix_Z890-E_Gaming_WiFi.png" alt="ROG Strix Z890-E Gaming WiFi">
                 <div class="card-body">
                     <h3>ROG Strix Z890-E Gaming WiFi</h3>
                     <p class="precio">499,99 €</p>
@@ -288,7 +288,7 @@ session_start();
             </div>
 
             <div class="card">
-                <img src="images/products/samsung/990evo-plus-2tb.jpg" alt="990 EVO Plus 2TB PCIe 5.0 NVMe">
+                <img src="../imagenes/990_EVO.png" alt="990 EVO Plus 2TB PCIe 5.0 NVMe">
                 <div class="card-body">
                     <h3>990 EVO Plus 2TB PCIe 5.0 NVMe</h3>
                     <p class="precio">229,99 €</p>

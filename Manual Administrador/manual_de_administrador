@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Administrador - TechnoStore</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .step {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-title {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .step-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="ima/image2.png" alt="Logo TechnoStore" class="logo">
+            <h1>Manual de Administrador</h1>
+        </header>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">1</span> Acceso a la Plataforma
+            </div>
+            <div class="step-content">
+                <p>Accederemos a la página de Technostore mediante un navegador a elección propia (Firefox, Microsoft Edge, Tor, etc.) usando la dirección donde se aloja el servidor web o bien el nombre del dominio.</p>
+                <img src="ima/image6.png" alt="Barra de direcciones web" class="screenshot" style="max-width: 400px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">2</span> Acceso al Panel Principal
+            </div>
+            <div class="step-content">
+                <p>Accedemos al panel principal e iniciamos sesión en nuestra cuenta administrador (un administrador es el único que puede hacer a otro administrador).</p>
+                <img src="ima/image1.png" alt="Menú de cuenta para iniciar sesión" class="screenshot" style="max-width: 500px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">3</span> Panel de Login
+            </div>
+            <div class="step-content">
+                <p>Panel de login para introducir las credenciales de administración.</p>
+                <img src="ima/image5.png" alt="Panel de inicio de sesión vacío" class="screenshot" style="max-width: 500px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">4</span> Ejemplo de Sesión
+            </div>
+            <div class="step-content">
+                <p>Ejemplo de sesión introduciendo los datos del administrador.</p>
+                <img src="ima/image4.png" alt="Ejemplo de inicio de sesión con datos" class="screenshot" style="max-width: 500px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">5</span> Visión de Cuenta y Rol
+            </div>
+            <div class="step-content">
+                <p>Visión general de la cuenta y comprobación del rol asignado (admin).</p>
+                <img src="ima/image3.png" alt="Perfil mostrando el rol de administrador" class="screenshot">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">6</span> Cambio de Credenciales
+            </div>
+            <div class="step-content">
+                <p>Panel para el cambio de credenciales de seguridad.</p>
+                <img src="ima/image8.png" alt="Formulario de cambio de contraseña" class="screenshot">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">7</span> Panel Administrativo de Cuentas
+            </div>
+            <div class="step-content">
+                <p>Panel administrativo para la gestión de usuarios registrados. Desde aquí se puede visualizar y gestionar la siguiente información:</p>
+                <ul>
+                    <li>ID</li>
+                    <li>Nombre</li>
+                    <li>Email</li>
+                    <li>Rol Actual</li>
+                    <li>Bloqueado</li>
+                    <li>Fecha Registro</li>
+                    <li>Acciones</li>
+                </ul>
+                <img src="ima/image7.png" alt="Panel de administración de gestión de usuarios" class="screenshot">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

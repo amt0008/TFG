@@ -111,6 +111,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Registrarse | TechnoStore</title>
     <link rel="icon" type="image/png" href="../imagenes/icono.png">
     <style>
+        html {
+            height: 100%;
+        }
+        
         :root { 
             --primary-color: #0056b3; 
             --dark-bg: #1a1a1a; 
@@ -124,7 +128,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             background-color: var(--light-grey); 
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            height: 100vh; /* ← Cambiado a height: 100vh exactamente */
+            overflow: hidden; /* Evita scroll extra para que nunca sobrepase el 100% */
         }
         
         header { 
@@ -139,6 +144,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             z-index: 1000; 
             height: 80px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* Header nunca se encoge */
         }
 
         .logo { font-size: 28px; font-weight: bold; color: var(--primary-color); text-transform: uppercase; text-decoration: none; }
@@ -177,6 +183,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             justify-content: center;
             align-items: center;
             padding: 40px 20px;
+            overflow: auto; /* Solo scroll interno si el formulario es muy alto (móviles) */
         }
 
         .auth-container {

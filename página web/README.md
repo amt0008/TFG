@@ -7,3 +7,6 @@ BBDD: 192.168.10.4/24
 Web: Adaptador puente con dirección IP fija (192.168.5.135)
 Aplicaciones: NAT
 BBDD: NAT
+--------------------------------------------------------Monitoreo-----------------------------------------------------------------------------------------------------
+Usamos Prometheus para monitorizar los tres servidores al mismo tiempo y de manera centralizada y Grafana para tener estos datos en unas gráficas constantes (las de prometheus se borran cada vez que salimos de la página)
+Todos los derechos están reservados por los miembros de Technostore© y creadores de dicho trabajo

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - TechnoStore</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .step {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-title {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .step-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: block;
+        }
+
+        .img-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .img-row img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="ima/image9.png" alt="Logo TechnoStore" class="logo">
+            <h1>Manual de Usuario - TechnoStore</h1>
+        </header>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">1</span> Acceso a la Plataforma
+            </div>
+            <div class="step-content">
+                <p>Accederemos a la página de Technostore mediante un navegador a elección propia (Firefox, Microsoft Edge, Tor, etc.) usando la dirección donde se aloja el servidor web o bien el nombre del dominio.</p>
+                <img src="ima/image7.png" alt="Barra de direcciones web" class="screenshot" style="max-width: 400px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">2</span> Página Principal
+            </div>
+            <div class="step-content">
+                <p>Al acceder TechnoStore nos devuelve el index.html donde se halla el corazón de la web.</p>
+                <img src="ima/image2.jpg" alt="Página principal de TechnoStore" class="screenshot">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">3</span> Gestión de Privacidad y Seguridad
+            </div>
+            <div class="step-content">
+                <p>En cumplimiento del marco normativo vigente, se ha implementado la política de cookies conforme al RGPD y la LSSI, incorporando un CMP (Consent Management Platform) que permite una gestión granular y configurable del consentimiento del usuario sobre cookies opcionales y esenciales. Además incorpora la elección de tipos diferentes de cookies.</p>
+                
+                <img src="ima/image11.png" alt="Menú de configuración de cookies" class="screenshot" style="max-width: 600px;">
+                
+                <p>La comunicación entre el usuario y el servidor se encuentra protegida mediante certificados SSL, que fuerzan el uso de conexiones HTTPS y redirigen automáticamente las peticiones HTTP al puerto 443, garantizando el cifrado de los datos en tránsito.</p>
+                <p>Asimismo, la seguridad y privacidad de la información almacenada en la base de datos se refuerza mediante técnicas de hashing aplicadas a los datos sensibles, especialmente contraseñas, asegurando un almacenamiento cifrado y conforme a las normas de protección de datos (Reglamento (UE) 2016/679; Ley 34/2002).</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">4</span> Registro e Inicio de Sesión
+            </div>
+            <div class="step-content">
+                <p>Para registrarnos iremos a Mi cuenta —> registrarse. Se abre el menú desplegable al pasar el cursor encima de Mi cuenta y vemos la opción de registrarse e iniciar sesión.</p>
+                <div class="img-row">
+                    <img src="ima/image1.png" alt="Formulario de registro" class="screenshot">
+                    <img src="ima/image4.png" alt="Formulario de inicio de sesión" class="screenshot">
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">5</span> Navegación del Catálogo
+            </div>
+            <div class="step-content">
+                <p>Podremos elegir qué tipo de componente deseamos.</p>
+                <img src="ima/image8.png" alt="Menú desplegable de componentes" class="screenshot" style="max-width: 500px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">6</span> Búsqueda y Selección de Productos
+            </div>
+            <div class="step-content">
+                <p>Añadir al carrito el o los productos deseados.</p>
+                <p>Además, se ofrece la capacidad de filtrar por:</p>
+                <ul>
+                    <li>Categoría</li>
+                    <li>Proveedor</li>
+                    <li>Precio</li>
+                    <li>Stock / No stock</li>
+                </ul>
+                <img src="ima/image5.png" alt="Catálogo con filtros aplicados" class="screenshot">
+                <img src="ima/image10.png" alt="Notificación de producto añadido al carrito" class="screenshot">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">7</span> Gestión del Carrito de la Compra
+            </div>
+            <div class="step-content">
+                <p>Visualización de artículos en el carrito y procedencia a la compra, o eliminación de este si no se desease algún artículo.</p>
+                <img src="ima/image3.png" alt="Resumen del carrito de la compra" class="screenshot">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">8</span> Historial de Pedidos
+            </div>
+            <div class="step-content">
+                <p>Visualización de pedidos realizados y toda su información relacionada como:</p>
+                <ul>
+                    <li>Nº Pedido</li>
+                    <li>Fecha</li>
+                    <li>Artículos Totales</li>
+                    <li>Total</li>
+                    <li>Estado</li>
+                    <li>Acción</li>
+                </ul>
+                <img src="ima/image6.png" alt="Detalle del pedido realizado" class="screenshot">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
